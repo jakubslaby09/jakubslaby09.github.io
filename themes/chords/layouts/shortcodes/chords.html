@@ -1,0 +1,18 @@
+<p class="chords"{{
+    if .Get "chorus"
+}} chorus{{
+    else if .Get "verse"
+}} verse="{{ .Get `verse` }}"{{
+    end
+}}>
+{{
+    trim .Inner "\n"
+    | replaceRE `\[([\w#]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
+    | safeHTML
+}}
+{{/*
+    trim .Inner "\n"
+    | replaceRE `\[([\w]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
+    | safeHTML
+*/}}
+</p>

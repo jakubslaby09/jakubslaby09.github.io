@@ -1,0 +1,8 @@
+baseURL = 'http://slaby.fun/'
+languageCode = 'cs'
+title = 'Jakub Slabý'
+theme = 'chords'
+summaryLength = 10
+
+[params]
+  author = 'Jakub Slabý'

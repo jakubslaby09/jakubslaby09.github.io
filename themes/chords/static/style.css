@@ -1,0 +1,243 @@
+:root {
+    --background: #fff;
+    --on-background: #000;
+    --primary: #000;
+    --on-primary: #fff;
+    --secondary: #ddd;
+    --on-secondary: #444;
+    background: var(--background);
+    color: var(--on-background);
+    font: 1em 'Open Sans', sans-serif;
+}
+:root[themed] {
+    --background: hsl(calc(var(--hue) - 25), calc(10% * var(--saturation, 1)), 95%);
+    --on-background: hsl(var(--hue), calc(100% * var(--saturation, 1)), 5%);
+    --primary: hsl(calc(var(--hue) + 25), calc(80% * var(--saturation, 1)), 20%);
+    --on-primary: hsl(calc(var(--hue) + 25), calc(100% * var(--saturation, 1)), 95%);
+    --secondary: hsl(calc(var(--hue) + 25), calc(15% * var(--saturation, 1)), 80%);
+    --on-secondary: hsl(var(--hue), calc(100% * var(--saturation, 1)), 8%);
+}
+:root[themed][dark] {
+    --background: hsl(calc(var(--hue) - 25), calc(10% * var(--saturation, 1)), 10%);
+    --on-background: hsl(calc(var(--hue) + 25), calc(100% * var(--saturation, 1)), 95%);
+    --primary: hsl(calc(var(--hue) + 25), calc(80% * var(--saturation, 1)), 70%);
+    --on-primary: hsl(calc(var(--hue) - 25), calc(20% * var(--saturation, 1)), 25%);
+    --secondary: hsl(calc(var(--hue) + 25), calc(15% * var(--saturation, 1)), 40%);
+    --on-secondary: hsl(var(--hue), calc(100% * var(--saturation, 1)), 96%);
+}
+body {
+    margin: 1rem 1rem 0;
+}
+
+/* *::selection {
+    background-color: #fff4;
+    color: #0008;
+} */
+
+header {
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
+    background: var(--primary);
+    color: var(--on-primary);
+    text-align: center;
+}
+header > * {
+    animation: header-children 1s cubic-bezier(0, 0, 0, 1) forwards;
+}
+@keyframes header-children {
+    from {
+        transform: translateY(-50%);
+        opacity: 0.5;
+    }
+}
+
+nav {
+    margin: 1rem 0;
+    gap: 1rem;
+    flex-direction: column;
+}
+nav > a {
+    padding: 1rem;
+    border-radius:  0.2rem 0.2rem 1rem 1rem;
+    color: var(--on-secondary);
+    background: var(--secondary);
+    text-decoration: none;
+}
+nav > a > h3 {
+    margin: 0 0 0.3rem;
+}
+nav > a > p {
+    margin: 0;
+    text-wrap: pretty;
+}
+nav > a {
+    position: relative;
+    display: block;
+    margin: 1rem 0;
+    border-radius: 2rem;
+    padding: 1rem;
+    background: var(--secondary);
+    color: var(--on-secondary);
+    text-decoration: none;
+    text-wrap: nowrap;
+}
+nav > a:focus {
+    outline: none;
+}
+nav > a::before {
+    transition: transform 150ms cubic-bezier(0, 0, 0, 1);
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: 0;
+    box-shadow: var(--on-secondary) 0 0.5rem 0 -1px;
+    z-index: -1;
+}
+nav > a:not(:hover, :focus):before {
+    transform: translateY(-0.5rem);
+}
+nav > a::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: 0;
+    background: var(--on-secondary);
+    transform: scaleX(0);
+    opacity: 0.2;
+    z-index: 1;
+}
+nav > a:not(:active)::after {
+    transition: transform 150ms cubic-bezier(0, 0, 0, 1),
+        opacity 500ms 150ms linear;
+    transform: scaleX(1);
+    opacity: 0;
+}
+
+details.metronome {
+    position: sticky;
+    display: flex;
+    top: -0.3rem;
+    padding: 0.6rem 0.5rem 0.5rem;
+    font-size: 1.5em;
+    border-radius: 0.3rem 0.3rem 0.5rem 0.5rem;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+details.metronome[open] {
+    animation: metronome-beat var(--period) cubic-bezier(1, 0, 1, 1) infinite;
+}
+@media not print {
+    .metronome {
+        background: var(--secondary);
+        color: var(--on-secondary);
+    }
+}
+@keyframes metronome-beat {
+    to {
+        background: #fff;
+        color: var(--on-secondary);
+    }
+}
+details.metronome summary::marker {
+    /* TODO: use clip-path */
+    content: "⏸";
+    display: inline-block;
+    width: 1ch;
+    line-height: 1;
+    font-family: sans-serif;
+}
+details.metronome[open] summary::marker {
+    content: "⏵";
+}
+
+.chords {
+    position: relative;
+    min-height: 5rem;
+    white-space: pre;
+    padding-left: 3rem;
+}
+.chords:not([chorus]) {
+    counter-increment: verse;
+}
+.chords::before {
+    content: attr(verse);
+    position: absolute;
+    height: 100%;
+    inset: 1.3rem auto 0 0;
+    font-size: 3rem;
+    font-weight: 900;
+    font-family: monospace;
+    vertical-align: middle;
+    color: var(--primary);
+    opacity: 0.7;
+}
+.chords:not([verse], [chorus])::before {
+    content: counter(verse);
+}
+.chords[chorus]:not([verse])::before {
+    content: "R";
+}
+.chords:nth-child(even)::before {
+    color: var(--on-background);
+}
+span[chord] {
+    display: inline-block;
+}
+span[chord]:empty {
+    vertical-align: top;
+}
+span[chord]::before {
+    content: attr(chord);
+    display: block;
+    width: fit-content;
+    background: var(--primary);
+    color: var(--on-primary);
+    padding: 0 0.3rem;
+    margin-right: 0.2rem;
+    border-radius: 0.5rem;
+}
+span[chord]:empty:last-child::before {
+    padding-right: 0.5rem;
+    background: linear-gradient(270deg, transparent, /* #4444 0.3rem, */ var(--primary) 0.7rem);
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    background: var(--background);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    text-align: center;
+    z-index: 1;
+}
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0 5rem auto 5rem;
+    height: max(1px, 0.1rem);
+    background-color: var(--on-background);
+    opacity: 0.5;
+}
+footer p {
+    margin: 0;
+}
+footer a {
+    position: relative;
+    color: var(--primary);
+    text-decoration: none;
+}
+footer a::before {
+    transition: transform 100ms cubic-bezier(0, 0, 0, 1);
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 1px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+}
+footer a:hover:before {
+    transform: scaleX(1);
+}

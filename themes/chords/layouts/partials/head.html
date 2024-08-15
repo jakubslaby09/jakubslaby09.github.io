@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html
+    lang="{{ site.LanguageCode }}"
+    {{- with .Params.theme.hue -}}
+        themed
+        style="
+        --hue: {{.}}
+        {{ with page.Params.theme.saturation }};
+            --saturation: {{.}}
+        {{end}}"
+        {{ if eq true page.Params.theme.dark }}
+            dark
+        {{ end }}
+{{- end -}}>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ .Description }}">
+    <link rel="stylesheet" href="/style.css">
+    <title>{{ page.Title }}</title>
+</head>

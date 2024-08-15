@@ -1,0 +1,11 @@
+{{ partial "head.html" . }}
+{{/* TODO: styling <h1>{{ .Title }}</h1>  */}}
+{{ with .Params.bpm }}
+    <details class="metronome" open style="--period: {{ math.Div 60 (cast.ToFloat (.)) }}s;">
+        <summary>
+            {{ . }} bpm
+        </summary>
+    </details>
+{{ end }}
+{{ .Content }}
+{{ partial "footer.html" . }}
