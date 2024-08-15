@@ -35,7 +35,11 @@ body {
 } */
 
 header {
+    width: min-content;
+    min-width: calc(min(50rem, 100%));
     max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
     padding: 1rem;
     border-radius: 2rem;
     background: var(--primary);
