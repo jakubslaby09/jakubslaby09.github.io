@@ -1,6 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
+copyright: ""
 draft: true
 bpm: 120
 theme:
