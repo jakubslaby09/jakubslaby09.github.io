@@ -119,24 +119,24 @@ nav > a:not(:active)::after {
 }
 
 details.metronome {
-    position: sticky;
     display: flex;
-    top: -0.3rem;
     padding: 0.6rem 0.5rem 0.5rem;
     font-size: 1.5em;
     border-radius: 0.3rem 0.3rem 0.5rem 0.5rem;
     overflow: hidden;
-    z-index: 1;
     cursor: pointer;
 }
-details.metronome[open] {
-    animation: metronome-beat var(--period) cubic-bezier(1, 0, 1, 1) infinite;
-}
 @media not print {
-    .metronome {
+    details.metronome {
+        position: sticky;
+        top: -0.3rem;
+        z-index: 1;
         background: var(--secondary);
         color: var(--on-secondary);
     }
+}
+details.metronome[open] {
+    animation: metronome-beat var(--period) cubic-bezier(1, 0, 1, 1) infinite;
 }
 @keyframes metronome-beat {
     to {
@@ -210,12 +210,16 @@ span[chord]:empty:last-child::before {
 
 footer {
     position: sticky;
-    bottom: 0;
     background: var(--background);
     margin-top: 0.5rem;
     padding: 0.5rem 0;
     text-align: center;
     z-index: 1;
+}
+@media not print {
+    footer {
+        bottom: 0;
+    }
 }
 footer::before {
     content: "";
