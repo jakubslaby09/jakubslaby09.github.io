@@ -146,14 +146,13 @@ details.metronome[open] {
 }
 details.metronome summary::marker {
     /* TODO: use clip-path */
-    content: "⏸";
+    content: "◼";
     display: inline-block;
     width: 1ch;
     line-height: 1;
-    font-family: sans-serif;
 }
 details.metronome[open] summary::marker {
-    content: "⏵";
+    content: "▶";
 }
 
 .chords {
