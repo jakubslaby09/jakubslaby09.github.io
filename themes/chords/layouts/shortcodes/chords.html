@@ -5,12 +5,12 @@
 }} verse="{{ .Get `verse` }}"{{
     end
 }}>
-{{
+{{-
     trim .Inner "\n"
     | replaceRE `\[([\w#]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
     | markdownify
     | safeHTML
-}}
+-}}
 {{/*
     trim .Inner "\n"
     | replaceRE `\[([\w]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
