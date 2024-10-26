@@ -8,6 +8,7 @@
 {{
     trim .Inner "\n"
     | replaceRE `\[([\w#]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
+    | markdownify
     | safeHTML
 }}
 {{/*
