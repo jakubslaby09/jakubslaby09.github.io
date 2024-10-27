@@ -28,7 +28,7 @@ I close my eyes and pass away.
 I don't know who he is.
 In my dreams he does exist.
 His passion is a kiss
-and I can not resist.*
+and I cannot resist.*
 {{< /chords >}}
 
 {{< chords chorus=true >}}
