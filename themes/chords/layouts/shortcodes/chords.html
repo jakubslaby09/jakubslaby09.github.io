@@ -7,8 +7,8 @@
 }}>
 {{-
     trim .Inner "\n"
-    | replaceRE `\[([\w#]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
     | markdownify
+    | replaceRE `\[([\w#]+)]([^\n\[]*)` `<span chord="$1">$2</span>` 
     | safeHTML
 -}}
 {{/*
