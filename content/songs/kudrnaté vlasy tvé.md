@@ -1,7 +1,6 @@
 ---
 title: "Kudrnaté vlasy tvé"
 date: 2024-08-14T09:53:10+02:00
-draft: true
 bpm: 65
 ---
 
