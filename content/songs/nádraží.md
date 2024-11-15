@@ -15,15 +15,15 @@ theme:
 [D]Vítr se štěstím chvěje a píše do závěje:
 [G]Vánoce dlouhé celé, [A]šťastné a převeselé.
 [D]Duše kaprů stoupaj k nebi, Štědrý den ten by nebyl
-[G]bez dárků a bez olova, [A]bez blízkých, bez domova[em]
+[G]bez dárků a[emi] bez olova, [A]bez blízkých, bez domova[em]
 {{< /chords >}}
 
 {{< chords chorus=true >}}
 [em]Prázdný je nádraží a v louži jen se odráží
 [D]svit knajpy opuštěný v perónech,
-[G]tam někde mezi tmou a Berounem
+[Hmi]tam někde mezi tmou a [G]Berounem
 [em]svítí zlato na jmelí a hostů pár se nachmelí.
-[D]Do Tesca pod půllitrem leží šek, [G]to asi přiletěl sem Ježíšek.
+[D]Do Tesca pod půllitrem leží šek, [Hmi]to asi přiletěl sem []GJežíšek.
 {{< /chords >}}
 
 {{< chords >}}
