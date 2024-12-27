@@ -1,11 +1,11 @@
 ---
 title: "Nádraží"
 date: 2024-08-23T18:05:46+02:00
+lastmod: 2024-12-27T20:34:20+01:00
 copyright: "Tři sestry, © 2010 EMI Czech Republic s.r.o."
 bpm: 130
 theme:
   hue: 220
-  # saturation: 0.7
 ---
 
 # Tři sestry - Nádraží
@@ -13,9 +13,9 @@ theme:
 {{< chords >}}
 [D] [G] [A]
 [D]Vítr se štěstím chvěje a píše do závěje:
-[G]Vánoce dlouhé celé, [A]šťastné a převeselé.
+[G]Vánoce dlouhé celé, [em]šťastné a [A]převeselé.
 [D]Duše kaprů stoupaj k nebi, Štědrý den ten by nebyl
-[G]bez dárků a bez olova, [A]bez blízkých, bez domova[em]
+[G]bez dárků a bez olova, [em]bez blízkých, [A]bez domova[em]
 {{< /chords >}}
 
 {{< chords chorus=true >}}
@@ -29,9 +29,9 @@ theme:
 {{< chords >}}
 [D] [G] [A]
 [D]Častokrát sem chodíváme, vesele se naléváme,
-[G]a jistě bez váhání [A]též na den Díkůvzdání.
+[G]a jistě bez váhání [em]též na den [A]Díkůvzdání.
 [D]Vánoce, jak se sluší, pípy chod těžko zruší.
-[G]Doma bývám každý ráno. [A]Kéž mi je pivo přáno.[em]
+[G]Doma bývám každý ráno. [em]Kéž mi je [A]pivo přáno.[em]
 {{< /chords >}}
 
 {{< chords chorus=true >}}
